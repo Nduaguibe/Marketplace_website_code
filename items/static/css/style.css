@@ -1,0 +1,38 @@
+.bg{
+    background-color: red;
+}
+
+.pd{
+    padding: 10px 10px 10px 10px;
+}
+
+.col-grid{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    background-color: white;
+    padding: 5px;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.col-grid-item{
+    background-color: #f1f1f1;
+    border:0.5px solid #f1f1f1;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.ct{
+    text-align: center;
+}
+
+.pd-bg-br{
+    padding: 5px 6px 5px 6px; 
+    background-color: lightgreen; 
+    border-radius: 5px;
+}
+
+.br-10{
+    border-radius: 10px;
+}
+
