@@ -1,5 +1,5 @@
-from django.shortcuts import render,redirect
-from .models import item
+from django.shortcuts import render,redirect,get_object_or_404
+from .models import item,Category
 from .forms import NewItemForm
 
 
@@ -10,21 +10,33 @@ def base(request):
     return render(request,'items/base.html')
 
 def front_page(request):
-    items = item.objects.all()
-    return render(request,'items/front_page.html',{'items':items})
+    categories=Category.objects.all()
+    items = item.objects.filter(is_sold=False)
+    return render(request,'items/front_page.html',{'items':items,'categories':categories})
 
 def new(request):
     if request.method == 'POST':
         form = NewItemForm(request.POST,request.FILES)
 
         if form.is_valid():
-            form.save(commit=False).save()
+            item = form.save(commit=False)
+            item.save()
             
 
-            return redirect('item:front_page')
+            return redirect('items:front_page')
     else:
         form=NewItemForm()
 
     return render(request,'items/Add_item.html',{
         'form':form,
         'title':'New item'})
+    
+def detail(request,id):
+    categories = get_object_or_404(Category,id=id)
+    return render(request,'item/detail.html',{'categories':categories})
+
+def search_value(request):
+    if request.method == 'POST':
+        searched=request.POST['query']
+        items = item.objects.filter(name__contains=searched)
+    return render(request,'items/search_value.html',{'searched':searched,'items':items})

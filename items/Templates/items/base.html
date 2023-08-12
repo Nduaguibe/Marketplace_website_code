@@ -6,7 +6,9 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
     <body>
-        <h1 class="bg pd">This is the heading</h1>
-     
+        
+        {% block content %}
+            <h1 class="ct bg">WELCOME TO KERIZON STORES</h1>
+        {% endblock %}
     </body>
 </html>

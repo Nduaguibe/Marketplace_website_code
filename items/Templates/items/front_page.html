@@ -1,18 +1,58 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
         <title>This is the base page</title>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}">
     </head>
     <body>
-        <div class="col-grid">
-            <h1 class="bg pd">1</h1>
-            <h1 class="bg pd">2</h2>
-            <h1 class="bg pd">3</h1>
-            <h1 class="bg pd">4</h1>
-            <h1 class="bg pd">5</h1>
+        <section>
+            <nav >
+                <ul>
+                    <li class="li"><p class="font-serif">Kerizon</p></li>
+                    <li class="li m-r">
+                        <form method=POST action="{% url 'items:search_value' %}">
+                            {% csrf_token %}
+
+                            <input name="query" type="search" placeholder="Search Products" >
+                            <button class="pd-bg-br-btn" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li class="li font-serif"><a href="{% url 'items:new' %}">New item</a></li>
+                    <li class="li font-serif"><a href="#">Cart</a></li>
+                </ul>
+            </nav>
+
+            <div class="fp-grid pd">
+                <div class="dash-bg dash-pd-left">
+                    <ul>
+                        <li class="font-serif"><a href='#'><p><strong>.</strong>Supermarket</p></a></li>
+                        <li class="font-serif"><p><a href='#'><strong>.</strong>Groceries</p></a></li>
+                        <li class="font-serif"><p><a href='#'><strong>.</strong>Beverages</p></a></li>
+                    </ul>
+                </div>
+                <div class="dash-bg dash-pd-right fp-item2"></div>
+            </div>
         
-            
+            <div class="col-grid ">
+                {% for category in categories %}
+                    <a href="{% url 'items:detail' category.id %}">
+                        <img src="{{category.image.url}}" height="200" width="200" class="pd-bg-br-img">
+                    </a>
+                {% endfor %}
+            </div>
+            <div class="col-grid">
+                {% for category in categories %}
+                    <p class="ct">{{category.name}}</p>
+                {% endfor %}
+            </div>
+        </section>
+        
+        <footer class="footer">
+            The footer
+        </footer>
+        <div class="footer">
+            fff
         </div>
     </body>
 </html>

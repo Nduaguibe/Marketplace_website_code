@@ -1,0 +1,16 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css %'}">
+</head>
+
+<body>
+    {% block content %}
+        {% if searched %}
+            {% for item in items %}
+                {{item}}
+                <img src='{{item.image.url}}'>
+            {% endfor %}
+        {% endif %}
+
+    {% endblock %}
+</body>
