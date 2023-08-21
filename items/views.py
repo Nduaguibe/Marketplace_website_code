@@ -10,10 +10,14 @@ def base(request):
     return render(request,'items/base.html')
 
 def front_page(request):
-    categories=Category.objects.all()
-    items = item.objects.filter(is_sold=False)
-    return render(request,'items/front_page.html',{'items':items,'categories':categories})
-
+    Book=Category.objects.get(name="Books")
+    Phone=Category.objects.get(name="Phones")
+    Toy=Category.objects.get(name="Toys")
+    return render(request,'items/front_page.html',{
+        'Book':Book,
+        'Phone':Phone,
+        'Toy':Toy,
+            })
 def new(request):
     if request.method == 'POST':
         form = NewItemForm(request.POST,request.FILES)

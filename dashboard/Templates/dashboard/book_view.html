@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}<title>This is a category view of the selected page</title>{% endblock %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div class="col-grid">
+            {% for book in books %}
+                <img src="{{book.image.url}}">
+            {% endfor %}
+        </div>
+    </body>
+</html>

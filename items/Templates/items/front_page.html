@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>This is the base page</title>
-        <link rel="stylesheet"  type="text/css" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet"  href="{% static 'css/style.css' %}">
     </head>
     <body>
         <section>
@@ -34,26 +34,29 @@
                 <div class="dash-bg dash-pd-right fp-item2"></div>
             </div>
         
-            <div class="col-grid ">
-                {% for category in categories %}
-                    <a href="{% url 'items:detail' category.id %}">
-                        <img src="{{category.image.url}}" height="200" width="200" class="pd-bg-br-img">
-                    </a>
-                {% endfor %}
+            <div class=col-grid>
+                <a href="#">
+                <img src="{{Book.image.url}}">
+                </a>
+                <!-----
+                <a href="{% url 'dashboard:phone_view' %}">
+                <img src="{{Phone.image.url}}">
+                </a>
+                <a href="{% url 'dashboard:toy_view' %}">
+                <img src="{{Toy.image.url}}">
+                </a>---->
+
             </div>
-            <div class="col-grid">
-                {% for category in categories %}
-                    <p class="ct">{{category.name}}</p>
-                {% endfor %}
+            <div class="col-grid ct">
+                <p>{{Book.name}}</p>
+                <p>{{Phone.name}}</p>
+                <p>{{Toy.name}}</p>
             </div>
         </section>
         
         <footer class="footer">
-            The footer
+            <p>The footer</p>
         </footer>
-        <div class="footer">
-            fff
-        </div>
     </body>
 </html>
 
