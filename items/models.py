@@ -2,7 +2,7 @@ from django.db import models
 
 class Category(models.Model):
     name=models.CharField(max_length=255,null=True)
-    image=models.ImageField(upload_to='item_images',null=True)
+    image=models.ImageField(upload_to='item_images',default='0')
     class Meta:
         ordering=('name',)
         verbose_name_plural = 'Categories'

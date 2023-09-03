@@ -31,20 +31,31 @@
                         <li class="font-serif"><p><a href='#'><strong>.</strong>Beverages</p></a></li>
                     </ul>
                 </div>
-                <div class="dash-bg dash-pd-right fp-item2"></div>
-            </div>
+                <div class="dash-bg dash-pd-right fp-item2">
+                  <div class="body">
+                    <h1 id="h1">Auto image slider</h1>
+                    <div class="slider-frame">
+                        <div class="slide-images">
+                            <div class="img-container">
+                                <img src="{{Book.image.url}}">
+                            </div>
+                            <div class="img-container">
+                                <img src="{{Book.image.url}}">
+                            </div>
+                            <div class="img-container">
+                                <img src="{{Book.image.url}}">
+                            </div>
         
+                        </div>
+                    </div>
+                </div>
+                </div>        
             <div class=col-grid>
-                <a href="{% url 'dashboard:book_view' %}">
+                <a href="#">
                 <img src="{{Book.image.url}}">
                 </a>
                 <img src="{{Phone.image.url}}">
                 <img src="{{Toy.image.url}}">
-            </div>
-            <div class="col-grid ct">
-                <p>{{Book.name}}</p>
-                <p>{{Phone.name}}</p>
-                <p>{{Toy.name}}</p>
             </div>
         </section>
         
